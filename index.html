@@ -188,6 +188,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--faint);f
 .pane[data-r="3"] .bar>span{background:#74d6a1}
 .pane.done .bar>span{width:100%;background:#596675}
 .pane.act .bar>span{animation:fill var(--dwell,4200ms) linear forwards}
+.tag{display:flex;align-items:baseline;gap:9px;margin:0 2px 9px;min-height:17px}
+.defect{min-height:34px;margin:10px 2px 0;color:#fff;font-size:12px;line-height:1.35;transition:color .25s ease}
+.pane[data-r="0"].done .defect,.pane[data-r="0"].act .defect{color:#61a5ff}
+.pane[data-r="1"].done .defect,.pane[data-r="1"].act .defect{color:#f0a35e}
+.pane[data-r="2"].done .defect,.pane[data-r="2"].act .defect{color:#c39bf0}
+.pane[data-r="3"].done .defect,.pane[data-r="3"].act .defect{color:#74d6a1}
 @media(max-width:980px){.trio{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.trio{grid-template-columns:1fr}}
 
@@ -349,6 +355,16 @@ const ROUNDS = [
   {chip:"ROUND 1", r:"BLENDER R1", w:"first refinement", file:"round_1.mp4"},
   {chip:"ROUND 2", r:"BLENDER R2", w:"second refinement", file:"round_2.mp4"},
 ];
+const DEFECTS = {
+  "adaptive__sample_0004_projectile_arc": ["The prompt-only arc drifts before landing.", "The initial proxy flattens the launch path.", "The impact timing still arrives late.", "The arc and landing stay consistent."],
+  "adaptive__sample_0170_wall_bounce": ["The prompt-only bounce barely preserves height decay.", "The first contact point slips along the wall.", "The rebound timing remains slightly delayed.", "The bounce sequence stays consistent."],
+  "adaptive__sample_0085_oblique_wall_chain": ["The prompt-only chain misses the first wall contact.", "The initial proxy drifts at the oblique impact.", "The second contact arrives with a timing error.", "The multi-contact path is preserved."],
+  "append__final_v2__motion__v3k_new_3088_damped_pendulum": ["The prompt-only swing lacks a stable pivot.", "The initial proxy makes the pivot too rigid.", "The damping remains uneven across the swing.", "The period and decay stay aligned."],
+  "append__final_v2__motion__v3k_new_5587_inertial_motion": ["The prompt-only object slows without a force.", "The initial proxy starts with a translation drift.", "The speed still changes during free motion.", "The inertial motion stays consistent."],
+  "append__final_v2__v3k_0425_refraction": ["The prompt-only ray ignores the interface bend.", "The initial proxy gives an inconsistent refraction angle.", "The interface transition is still delayed.", "The bend follows the medium boundary."],
+  "adaptive__sample_0000_multi_drop": ["The prompt-only objects collapse without contact order.", "The first impacts merge into one event.", "The spacing drifts after the collision.", "The contact cascade is preserved."],
+  "adaptive__sample_0032_rolling_pair": ["The prompt-only wheels slide instead of rolling.", "The initial contact rotation slips.", "The coupled motion desynchronizes mid-clip.", "The rolling pair stays coupled."]
+};
 const mediaUrl = (sample, file) => SELECTED_BASE + "media/" + encodeURIComponent(sample.key) + "/" + file;
 
 const cases = document.getElementById("cases");
@@ -357,13 +373,14 @@ document.documentElement.style.setProperty("--dwell", DWELL + "ms");
 
 const PANE = i =>
   '<div class="pane" data-r="' + i + '">' +
+    '<div class="tag"><span class="r">' + ROUNDS[i].r + '</span>' +
+      '<span class="w">' + ROUNDS[i].w + '</span></div>' +
     '<div class="frames">' +
       '<video muted loop playsinline preload="none"></video>' +
       '<div class="rnd">' + ROUNDS[i].chip + '</div>' +
     '</div>' +
     '<div class="bar"><span></span></div>' +
-    '<div class="tag"><span class="r">' + ROUNDS[i].r + '</span>' +
-      '<span class="w">' + ROUNDS[i].w + '</span></div>' +
+    '<div class="defect"></div>' +
   '</div>';
 
 const SHELL =
@@ -409,7 +426,9 @@ for (const sample of SELECTED) {
   badge.dataset.c = "mechanics";
   badge.textContent = sample.root.toUpperCase();
   article.querySelector("h3").textContent = sample.title;
-  article.querySelector("code").textContent = "sample " + String(sample.index).padStart(2, "0");
+article.querySelector("code").textContent = "sample " + String(sample.index).padStart(2, "0");
+  const defects = DEFECTS[sample.id] || ["Visual defect remains under review.", "The initial proxy still drifts.", "The refinement is not yet stable.", "The final motion is consistent."];
+  article.querySelectorAll(".defect").forEach((el, i) => { el.textContent = defects[i]; });
   const vids = [...article.querySelectorAll("video")];
   vids.forEach((video, i) => { video.dataset.u = mediaUrl(sample, ROUNDS[i].file); });
   const cd = {vids, panes: [...article.querySelectorAll(".pane")], i: 0, timer: null};
