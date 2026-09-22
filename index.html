@@ -180,6 +180,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--faint);f
 .pane.act[data-r="1"] .frames{box-shadow:0 0 0 1px rgba(240,163,94,.22),0 10px 38px -18px rgba(240,163,94,.7)}
 .pane.act[data-r="2"] .frames{box-shadow:0 0 0 1px rgba(195,155,240,.22),0 10px 38px -18px rgba(195,155,240,.7)}
 .pane.act[data-r="3"] .frames{box-shadow:0 0 0 1px rgba(116,214,161,.22),0 10px 38px -18px rgba(116,214,161,.7)}
+.bar{height:4px;border-radius:3px;background:#39414d;margin-top:12px;overflow:hidden}
+.bar>span{display:block;height:100%;width:0;border-radius:3px;background:#61a5ff;transition:width .15s linear}
+.pane[data-r="0"] .bar>span{background:#61a5ff}
+.pane[data-r="1"] .bar>span{background:#f0a35e}
+.pane[data-r="2"] .bar>span{background:#c39bf0}
+.pane[data-r="3"] .bar>span{background:#74d6a1}
+.pane.done .bar>span{width:100%;background:#596675}
+.pane.act .bar>span{animation:fill var(--dwell,4200ms) linear forwards}
 @media(max-width:980px){.trio{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.trio{grid-template-columns:1fr}}
 
