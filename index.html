@@ -160,20 +160,20 @@ footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--faint);f
 }
 
 /* ---------- selected14 gallery ---------- */
-.selected-case{border-top:1px solid var(--line);padding:34px 0 40px}
-.selected-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:13px}
-.selected-head h3{font-size:18px;margin:0;font-weight:650}
+.selected-case{margin:18px 0 0;padding:20px 22px 22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(255,255,255,.035),transparent 34%),var(--panel);box-shadow:0 18px 52px rgba(0,0,0,.16)}
+.selected-head{display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.selected-head h3{font-size:21px;line-height:1.2;margin:4px 0 0;font-weight:680}
 .selected-head code{font:11.5px/1.4 var(--mono);color:var(--faint);overflow-wrap:anywhere}
 .selected-head .sample-no{font:11px/1 var(--mono);color:var(--a);letter-spacing:.5px;text-transform:uppercase}
-.selected-body{display:grid;grid-template-columns:minmax(180px,.76fr) minmax(0,3.24fr);gap:14px}
-.selected-reference{padding:10px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(145deg,rgba(97,165,255,.10),rgba(214,96,200,.05)),var(--panel)}
-.selected-reference img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#020304;border-radius:7px;margin:7px 0 10px}
-.selected-reference p{margin:0;color:var(--dim);font-size:12px;line-height:1.45}
+.selected-body{display:block}
+.selected-reference{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:14px;padding:10px 12px;margin-bottom:15px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(145deg,rgba(97,165,255,.10),rgba(214,96,200,.05)),rgba(0,0,0,.18)}
+.selected-reference img{display:block;width:150px;aspect-ratio:16/9;object-fit:cover;background:#020304;border-radius:7px;margin:0}
+.selected-reference p{margin:5px 0 0;color:var(--dim);font-size:13px;line-height:1.4}
 .selected-reference .label{font:10.5px/1 var(--mono);color:var(--faint);letter-spacing:.4px;text-transform:uppercase}
-.selected-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:start}
-.selected-method{min-width:0;padding:11px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(145deg,rgba(255,255,255,.045),transparent 44%),var(--panel2)}
-.selected-method-head{display:flex;flex-direction:column;gap:5px;min-height:48px;margin-bottom:10px;padding:1px 2px 9px;border-bottom:1px solid var(--line)}
-.selected-method-head b{font:12px/1 var(--mono);letter-spacing:.7px;color:var(--fg)}
+.selected-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:start}
+.selected-method{display:block;min-width:0;margin:0;padding:10px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(145deg,rgba(255,255,255,.045),transparent 44%),var(--panel2)}
+.selected-method-head{display:flex;flex-direction:column;gap:5px;min-height:53px;margin-bottom:9px;padding:1px 2px 9px;border-bottom:1px solid var(--line)}
+.selected-method-head b{font:13px/1 var(--mono);letter-spacing:.65px;color:var(--fg)}
 .selected-method-head span{color:var(--dim);font-size:12px;line-height:1.25}
 .selected-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#000}
 .selected-method[data-r="0"] .selected-frame{border-color:#39414c}
@@ -187,9 +187,14 @@ footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--faint);f
 .selected-frame video{display:block;width:100%;height:100%;object-fit:contain;background:#000}
 .selected-pending{display:grid;place-items:center;height:100%;color:var(--faint);font:11px/1 var(--mono);text-transform:uppercase;letter-spacing:.4px}
 .selected-note{margin:18px 0 0;padding:2px 0 2px 14px;border-left:2px solid var(--b);color:var(--dim);font-size:13px}
-@media(max-width:980px){.selected-body{grid-template-columns:1fr}.selected-reference{display:grid;grid-template-columns:150px 1fr;column-gap:14px}.selected-reference img{grid-row:span 2;margin:0}.selected-reference .label{align-self:end}}
-@media(max-width:720px){.selected-grid{grid-template-columns:repeat(2,1fr)}.selected-reference{display:block}.selected-reference img{margin:7px 0 10px}}
-@media(max-width:480px){.selected-grid{grid-template-columns:1fr}.selected-head{display:block}.selected-head code{display:block;margin-top:5px}}
+.title{padding:58px 0 30px}
+.title h1{max-width:980px;margin-left:auto;margin-right:auto;font-size:clamp(34px,4.4vw,54px);line-height:1.08;letter-spacing:-.35px}
+.title .sub{max-width:760px;margin-left:auto;margin-right:auto;font-size:16px}
+.title .authors{font-size:14px}.title .venue{margin-bottom:18px}
+.btns a{padding:8px 14px;font-size:13px}
+@media(max-width:980px){.selected-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.selected-reference{grid-template-columns:110px minmax(0,1fr)}.selected-reference img{width:110px}.selected-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.selected-case{padding:16px 14px 18px;border-radius:13px}.selected-grid{grid-template-columns:1fr}.selected-head{display:block}.selected-head code{display:block;margin-top:5px}.selected-reference{display:block}.selected-reference img{width:100%;max-width:220px;margin-bottom:9px}}
 
 </style>
 </head>
@@ -316,9 +321,8 @@ for (const sample of SELECTED) {
   article.innerHTML =
     '<div class="selected-head"><div><div class="sample-no">sample ' + String(sample.index).padStart(2, "0") + ' · ' + sample.root + '</div>' +
       '<h3>' + sample.title + '</h3><code>' + sample.id + '</code></div></div>' +
-    '<div class="selected-body"><aside class="selected-reference"><div class="label">reference frame</div>' +
-      '<img alt="Reference frame for ' + sample.title + '">' +
-      '<div><div class="label">four conditions</div><p>Text baseline, then Blender Round 0, 1, and 2 conditioning with the same Stage-2 prompt.</p></div>' +
+    '<div class="selected-body"><aside class="selected-reference"><img alt="Reference frame for ' + sample.title + '">' +
+      '<div><div class="label">reference frame · four conditions</div><p>Text baseline, then Blender Round 0, 1, and 2 conditioning with the same Stage-2 prompt.</p></div>' +
     '</aside><div class="selected-grid"></div></div>';
   article.querySelector("img").src = SELECTED_BASE + sample.source;
   article.querySelector("img").addEventListener("error", event => { event.currentTarget.replaceWith(document.createTextNode("reference frame unavailable")); });
@@ -332,6 +336,7 @@ for (const sample of SELECTED) {
       '<div class="selected-frame"><video controls loop muted playsinline preload="metadata"></video></div>';
     const frame = pane.querySelector(".selected-frame");
     const video = pane.querySelector("video");
+    video.poster = SELECTED_BASE + sample.source;
     video.src = mediaUrl(sample, method.file);
     video.addEventListener("error", () => setPending(frame), {once:true});
     videos.push(video);
