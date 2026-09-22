@@ -159,43 +159,29 @@ footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--faint);f
   .quad{grid-template-columns:1fr}
 }
 
-/* ---------- selected14 gallery ---------- */
-.selected-case{margin:18px 0 0;padding:20px 22px 22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,rgba(97,165,255,.08),rgba(214,96,200,.045) 52%,rgba(116,214,161,.03)),var(--panel);box-shadow:0 18px 52px rgba(0,0,0,.16)}
-.selected-head{display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
-.selected-head h3{font-size:21px;line-height:1.2;margin:4px 0 0;font-weight:680}
-.selected-head code{font:11.5px/1.4 var(--mono);color:var(--faint);overflow-wrap:anywhere}
-.selected-head .sample-no{font:11px/1 var(--mono);color:var(--a);letter-spacing:.5px;text-transform:uppercase}
-.selected-body{display:block}
-.selected-reference{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:14px;padding:10px 12px;margin-bottom:15px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(145deg,rgba(97,165,255,.10),rgba(214,96,200,.05)),rgba(0,0,0,.18)}
-.selected-reference img{display:block;width:150px;aspect-ratio:16/9;object-fit:cover;background:#020304;border-radius:7px;margin:0}
-.selected-reference p{margin:5px 0 0;color:var(--dim);font-size:13px;line-height:1.4}
-.selected-reference .label{font:10.5px/1 var(--mono);color:var(--faint);letter-spacing:.4px;text-transform:uppercase}
-.selected-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:start}
-.selected-method{display:block;min-width:0;margin:0;padding:10px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(145deg,rgba(255,255,255,.045),transparent 44%),var(--panel2)}
-.selected-method-head{display:flex;flex-direction:column;gap:5px;min-height:53px;margin-bottom:9px;padding:1px 2px 9px;border-bottom:1px solid var(--line)}
-.selected-method-head b{font:13px/1 var(--mono);letter-spacing:.65px;color:var(--fg)}
-.selected-method-head span{color:var(--dim);font-size:12px;line-height:1.25}
-.selected-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#000}
-.selected-method[data-r="0"] .selected-frame{border-color:#39414c}
-.selected-method[data-r="1"] .selected-frame{border-color:#79512a}
-.selected-method[data-r="2"] .selected-frame{border-color:#5a3f7a}
-.selected-method[data-r="3"] .selected-frame{border-color:#2c6b46;box-shadow:0 0 0 1px rgba(116,214,161,.12),0 10px 34px -22px rgba(116,214,161,.65)}
-.selected-method[data-r="0"] .selected-method-head b{color:var(--a)}
-.selected-method[data-r="1"] .selected-method-head b{color:var(--b)}
-.selected-method[data-r="2"] .selected-method-head b{color:var(--d)}
-.selected-method[data-r="3"] .selected-method-head b{color:var(--c)}
-.selected-frame video{display:block;width:100%;height:100%;object-fit:contain;background:#000}
-.selected-pending{display:grid;place-items:center;height:100%;color:var(--faint);font:11px/1 var(--mono);text-transform:uppercase;letter-spacing:.4px}
-.selected-note{margin:18px 0 0;padding:2px 0 2px 14px;border-left:2px solid var(--b);color:var(--dim);font-size:13px}
+/* ---------- page refinements ---------- */
 .title{padding:58px 0 30px}
 .title h1{max-width:980px;margin-left:auto;margin-right:auto;font-size:clamp(34px,4.4vw,54px);line-height:1.08;letter-spacing:-.35px}
 .title .sub{max-width:760px;margin-left:auto;margin-right:auto;font-size:16px}
-.title .authors{font-size:14px;text-align:center}.title .venue{display:block;width:100%;margin:4px auto 18px;text-align:center}
+.title .authors{display:block;width:100%;margin:0 auto;text-align:center;font-size:14px}
+.title .venue{display:block;width:100%;margin:4px auto 18px;text-align:center}
 .strip{background:linear-gradient(180deg,rgba(6,8,10,.92),rgba(8,10,15,.82))}
 .btns a{padding:8px 14px;font-size:13px}
-@media(max-width:980px){.selected-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){.selected-reference{grid-template-columns:110px minmax(0,1fr)}.selected-reference img{width:110px}.selected-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.selected-case{padding:16px 14px 18px;border-radius:13px}.selected-grid{grid-template-columns:1fr}.selected-head{display:block}.selected-head code{display:block;margin-top:5px}.selected-reference{display:block}.selected-reference img{width:100%;max-width:220px;margin-bottom:9px}}
+.trio{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.pane[data-r="0"]{--r:var(--a)}
+.pane[data-r="1"]{--r:var(--b)}
+.pane[data-r="2"]{--r:var(--d)}
+.pane[data-r="3"]{--r:var(--c)}
+.pane[data-r="0"] .frames{border-color:#315b91}
+.pane[data-r="1"] .frames{border-color:#79512a}
+.pane[data-r="2"] .frames{border-color:#5a3f7a}
+.pane[data-r="3"] .frames{border-color:#2c6b46}
+.pane.act[data-r="0"] .frames{box-shadow:0 0 0 1px rgba(97,165,255,.22),0 10px 38px -18px rgba(97,165,255,.7)}
+.pane.act[data-r="1"] .frames{box-shadow:0 0 0 1px rgba(240,163,94,.22),0 10px 38px -18px rgba(240,163,94,.7)}
+.pane.act[data-r="2"] .frames{box-shadow:0 0 0 1px rgba(195,155,240,.22),0 10px 38px -18px rgba(195,155,240,.7)}
+.pane.act[data-r="3"] .frames{box-shadow:0 0 0 1px rgba(116,214,161,.22),0 10px 38px -18px rgba(116,214,161,.7)}
+@media(max-width:980px){.trio{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.trio{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -250,12 +236,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--faint);f
 </section>
 
 <section id="rounds" class="wrap">
-  <h2><span class="n">03</span>Selected 14 samples, round by round</h2>
-  <p class="lede">The current cohort pairs a text-only Wan1.3B baseline with three Blender-conditioned generations for direct visual comparison.</p>
+  <h2><span class="n">03</span>Recursive self-improvement, round by round</h2>
+  <p class="lede">Round&nbsp;0 is the baseline; rounds&nbsp;1 and&nbsp;2 each re-open the scene with a fresh diagnosis and a verified repair.</p>
 
   <div id="cases"></div>
 
-  <p class="note warn">Current VIGA Selected 14 cohort. Missing media remains marked as awaiting render while the server-side queue advances.</p>
+  <p class="note warn">The left column is the original Prompt Only video; rounds 0, 1, and 2 use the current processed rendered videos for the same sample.</p>
 </section>
 
 <section id="compare" class="wrap">
@@ -281,74 +267,148 @@ footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--faint);f
 <footer><div class="wrap">Gen-RSI project page &middot; videos render from the shared preview bucket.</div></footer>
 
 <script>
-/* ---------- current VIGA Selected 14 gallery ---------- */
+const VIGA = "https://intern-data-wlcb.oss-cn-wulanchabu.aliyuncs.com/videococo-preview/viga-dynamic-metrics20/media/";
+const P20 = "20_样本_VIGA_动态审查_";
+const P30 = "extra30_VIGA_动态审查_";
+
+const CASES = [
+  {p:P20, id:"adaptive__sample_0000_multi_drop",                                 t:"Multi-body drop",                 c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0004_projectile_arc",                             t:"Projectile arc",                  c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0007_corner_ricochet",                            t:"Corner ricochet",                 c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0032_rolling_pair",                               t:"Rolling pair",                    c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0048_resting_settle",                             t:"Resting contact settle",          c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0067_ramp_roll",                                  t:"Ramp roll",                       c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0080_crossing_collision",                         t:"Crossing collision",              c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0085_oblique_wall_chain",                         t:"Oblique wall chain",              c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0142_funnel_merge",                               t:"Funnel merge",                    c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0145_obstacle_course",                            t:"Obstacle course",                 c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0170_wall_bounce",                                t:"Wall bounce",                     c:"mechanics"},
+  {p:P20, id:"adaptive__sample_0176_ramp_slide",                                 t:"Ramp slide",                      c:"mechanics"},
+  {p:P30, id:"append__final_v2__motion__v3k_new_3645_inertial_motion",           t:"Inertial motion",                 c:"mechanics"},
+  {p:P30, id:"append__final_v2__motion__v3k_new_3743_damped_pendulum",           t:"Damped pendulum",                 c:"mechanics"},
+  {p:P30, id:"append__final_v2__motion__v3k_new_4085_center_of_mass_toppling",   t:"Center-of-mass toppling",         c:"mechanics"},
+  {p:P30, id:"append__final_v2__motion__v3k_new_4134_natural_convection_tracer", t:"Natural convection tracer",       c:"thermal"},
+  {p:P30, id:"append__final_v2__v3k_0043_direct_radiation",                      t:"Direct radiation",                c:"optics"},
+  {p:P30, id:"append__new_taxonomy__v3k_extra_3009_direct_radiation",            t:"Direct radiation",                c:"optics"},
+  {p:P30, id:"append__new_taxonomy__v3k_extra_3014_deformation_plasticity",      t:"Deformation plasticity",          c:"material"},
+  {p:P30, id:"append__new_taxonomy__v3k_new_3032_magnetic_attraction_repulsion", t:"Magnetic attraction/repulsion",   c:"electromagnetism"},
+  {p:P30, id:"append__new_taxonomy__v3k_new_3056_damped_pendulum",               t:"Damped pendulum",                 c:"mechanics"},
+  {p:P30, id:"append__new_taxonomy__v3k_new_3183_capillary_wicking",             t:"Capillary wicking",               c:"fluids"},
+  {p:P30, id:"append__new_taxonomy__v3k_new_3194_vibrating_source",              t:"Vibrating source",                c:"acoustics"},
+  {p:P30, id:"append__new_taxonomy__v3k_new_3452_damped_pendulum",               t:"Damped pendulum",                 c:"mechanics"},
+  {p:P30, id:"motion__v3k_new_3193_damped_pendulum",                             t:"Damped pendulum",                 c:"mechanics"},
+  {p:P30, id:"motion__v3k_new_3636_vessel_drainage",                             t:"Vessel drainage",                 c:"fluids"},
+  {p:P30, id:"motion__v3k_new_3659_damped_spring_oscillation",                   t:"Damped spring oscillation",       c:"mechanics"},
+  {p:P30, id:"motion__v3k_new_3871_rolling_without_slipping",                    t:"Rolling without slipping",        c:"mechanics"},
+  {p:P30, id:"motion__v3k_new_4069_center_of_mass_toppling",                     t:"Center-of-mass toppling",         c:"mechanics"},
+  {p:P30, id:"motion__v3k_new_4112_damped_pendulum",                             t:"Damped pendulum",                 c:"mechanics"},
+  {p:P30, id:"motion__v3k_new_4115_magnetic_attraction_repulsion",               t:"Magnetic attraction/repulsion",   c:"electromagnetism"},
+  {p:P30, id:"motion__v3k_new_4140_lever_torque",                                t:"Lever torque",                    c:"mechanics"},
+  {p:P30, id:"motion__v3k_new_4163_rolling_without_slipping",                    t:"Rolling without slipping",        c:"mechanics"},
+  {p:P30, id:"motion__v3k_new_4210_rolling_without_slipping",                    t:"Rolling without slipping",        c:"mechanics"},
+  {p:P30, id:"physicsiq_0015_0047_domino_in_juice",                              t:"Domino in juice",                 c:"embodied"},
+];
+
+const url = (k, r) => VIGA + encodeURIComponent(k.p + k.id + "_r" + r + ".mp4");
+
+/* ---- top strip: two rows of final-round proxies, opposite directions ---- */
+const STRIP_A = [0, 8, 9, 7, 2, 6, 10, 3, 11, 4];
+const STRIP_B = [15, 21, 19, 25, 18, 34, 31, 22, 16, 27];
+
+function stripItem(k){
+  const f = document.createElement("figure");
+  const v = document.createElement("video");
+  v.autoplay = v.muted = v.loop = v.playsInline = true;
+  v.preload = "auto";
+  v.src = url(k, 2);
+  const cap = document.createElement("figcaption");
+  cap.textContent = k.t;
+  f.append(v, cap);
+  return f;
+}
+for (const [id, idx] of [["rowA", STRIP_A], ["rowB", STRIP_B]]) {
+  const el = document.getElementById(id);
+  const items = idx.map(i => CASES[i]);
+  for (const k of [...items, ...items]) el.append(stripItem(k));
+}
+
+/* ---------- current Selected 14 videos in the original RSI layout ---------- */
 const SELECTED_BASE = "https://intern-data-wlcb.oss-cn-wulanchabu.aliyuncs.com/videococo-preview/viga-selected14/";
 const SELECTED = [{"index":1,"id":"append__final_v2__motion__v3k_new_3088_damped_pendulum","root":"wan3","key":"01_append__final_v2__motion__v3k_new_3088_damped_pendulum_wan3","title":"Damped pendulum","source":"media/01_append__final_v2__motion__v3k_new_3088_damped_pendulum_wan3/source.png"},{"index":2,"id":"append__final_v2__motion__v3k_new_5587_inertial_motion","root":"wan3","key":"02_append__final_v2__motion__v3k_new_5587_inertial_motion_wan3","title":"Inertial motion","source":"media/02_append__final_v2__motion__v3k_new_5587_inertial_motion_wan3/source.png"},{"index":3,"id":"append__final_v2__v3k_0425_refraction","root":"wan3","key":"03_append__final_v2__v3k_0425_refraction_wan3","title":"Refraction","source":"media/03_append__final_v2__v3k_0425_refraction_wan3/source.png"},{"index":4,"id":"append__new_taxonomy__v3k_new_3118_vessel_drainage","root":"wan3","key":"04_append__new_taxonomy__v3k_new_3118_vessel_drainage_wan3","title":"Vessel drainage","source":"media/04_append__new_taxonomy__v3k_new_3118_vessel_drainage_wan3/source.png"},{"index":5,"id":"adaptive__sample_0000_multi_drop","root":"legacy","key":"05_adaptive__sample_0000_multi_drop_legacy","title":"Multi-body drop","source":"media/05_adaptive__sample_0000_multi_drop_legacy/source.png"},{"index":6,"id":"adaptive__sample_0004_projectile_arc","root":"legacy","key":"06_adaptive__sample_0004_projectile_arc_legacy","title":"Projectile arc","source":"media/06_adaptive__sample_0004_projectile_arc_legacy/source.png"},{"index":7,"id":"adaptive__sample_0032_rolling_pair","root":"legacy","key":"07_adaptive__sample_0032_rolling_pair_legacy","title":"Rolling pair","source":"media/07_adaptive__sample_0032_rolling_pair_legacy/source.png"},{"index":8,"id":"adaptive__sample_0085_oblique_wall_chain","root":"legacy","key":"08_adaptive__sample_0085_oblique_wall_chain_legacy","title":"Oblique wall chain","source":"media/08_adaptive__sample_0085_oblique_wall_chain_legacy/source.png"},{"index":9,"id":"adaptive__sample_0170_wall_bounce","root":"legacy","key":"09_adaptive__sample_0170_wall_bounce_legacy","title":"Wall bounce","source":"media/09_adaptive__sample_0170_wall_bounce_legacy/source.png"},{"index":10,"id":"append__final_v2__motion__v3k_new_4085_center_of_mass_toppling","root":"extra30","key":"10_append__final_v2__motion__v3k_new_4085_center_of_mass_toppling_extra30","title":"Center-of-mass toppling","source":"media/10_append__final_v2__motion__v3k_new_4085_center_of_mass_toppling_extra30/source.png"},{"index":11,"id":"append__final_v2__motion__v3k_new_3645_inertial_motion","root":"extra30","key":"11_append__final_v2__motion__v3k_new_3645_inertial_motion_extra30","title":"Inertial motion","source":"media/11_append__final_v2__motion__v3k_new_3645_inertial_motion_extra30/source.png"},{"index":12,"id":"physicsiq_0015_0047_domino_in_juice","root":"extra30","key":"12_physicsiq_0015_0047_domino_in_juice_extra30","title":"Domino in juice","source":"media/12_physicsiq_0015_0047_domino_in_juice_extra30/source.png"},{"index":13,"id":"append__final_v2__motion__v3k_new_3743_damped_pendulum","root":"extra30","key":"13_append__final_v2__motion__v3k_new_3743_damped_pendulum_extra30","title":"Damped pendulum","source":"media/13_append__final_v2__motion__v3k_new_3743_damped_pendulum_extra30/source.png"},{"index":14,"id":"append__final_v2__motion__v3k_new_3743_damped_pendulum","root":"wan3","key":"14_append__final_v2__motion__v3k_new_3743_damped_pendulum_wan3","title":"Damped pendulum","source":"media/14_append__final_v2__motion__v3k_new_3743_damped_pendulum_wan3/source.png"}];
-const METHODS = [
-  {label:"PROMPT ONLY", name:"Wan1.3B baseline", file:"prompt_only.mp4"},
-  {label:"BLENDER R0", name:"initial context", file:"blender_round_0_stage2_prompt.mp4"},
-  {label:"BLENDER R1", name:"first refinement", file:"blender_round_1_stage2_prompt.mp4"},
-  {label:"BLENDER R2", name:"second refinement", file:"blender_round_2_stage2_prompt.mp4"},
+const ROUNDS = [
+  {chip:"PROMPT", r:"PROMPT ONLY", w:"Wan1.3B baseline", file:"prompt_only.mp4"},
+  {chip:"ROUND 0", r:"BLENDER R0", w:"initial context", file:"round_0.mp4"},
+  {chip:"ROUND 1", r:"BLENDER R1", w:"first refinement", file:"round_1.mp4"},
+  {chip:"ROUND 2", r:"BLENDER R2", w:"second refinement", file:"round_2.mp4"},
 ];
 const mediaUrl = (sample, file) => SELECTED_BASE + "media/" + encodeURIComponent(sample.key) + "/" + file;
 
-function setPending(frame) {
-  frame.innerHTML = '<div class="selected-pending">awaiting render</div>';
-}
-
-function stripItem(sample) {
-  const figure = document.createElement("figure");
-  const video = document.createElement("video");
-  video.autoplay = video.muted = video.loop = video.playsInline = true;
-  video.preload = "metadata";
-  video.src = mediaUrl(sample, "blender_round_2_stage2_prompt.mp4");
-  video.addEventListener("error", () => video.remove());
-  const caption = document.createElement("figcaption");
-  caption.textContent = sample.title;
-  figure.append(video, caption);
-  return figure;
-}
-
-for (const [id, offset] of [["rowA", 0], ["rowB", 7]]) {
-  const row = document.getElementById(id);
-  const items = SELECTED.slice(offset, offset + 7);
-  for (const sample of [...items, ...items]) row.append(stripItem(sample));
-}
-
 const cases = document.getElementById("cases");
+const DWELL = 4200;
+document.documentElement.style.setProperty("--dwell", DWELL + "ms");
+
+const PANE = i =>
+  '<div class="pane" data-r="' + i + '">' +
+    '<div class="frames">' +
+      '<video muted loop playsinline preload="none"></video>' +
+      '<div class="rnd">' + ROUNDS[i].chip + '</div>' +
+    '</div>' +
+    '<div class="bar"><span></span></div>' +
+    '<div class="tag"><span class="r">' + ROUNDS[i].r + '</span>' +
+      '<span class="w">' + ROUNDS[i].w + '</span></div>' +
+  '</div>';
+
+const SHELL =
+  '<div class="case-head"><span class="badge"></span><h3></h3><code></code></div>' +
+  '<div class="trio">' + PANE(0) + PANE(1) + PANE(2) + PANE(3) + '</div>';
+
+function mark(cd, i) {
+  cd.i = i;
+  cd.panes.forEach((p, j) => { p.className = "pane" + (j < i ? " done" : ""); });
+  const cur = cd.panes[i];
+  void cur.offsetWidth;
+  cur.className = "pane act";
+}
+
+function stop(cd) { clearInterval(cd.timer); cd.timer = null; }
+function start(cd) {
+  stop(cd);
+  cd.timer = setInterval(() => mark(cd, (cd.i + 1) % ROUNDS.length), DWELL);
+}
+
+const io = new IntersectionObserver(es => {
+  for (const e of es) {
+    const cd = e.target._cd;
+    if (e.isIntersecting) {
+      for (const v of cd.vids) {
+        if (!v.src) v.src = v.dataset.u;
+        v.play().catch(() => {});
+      }
+      mark(cd, cd.i);
+      start(cd);
+    } else {
+      stop(cd);
+      for (const v of cd.vids) v.pause();
+    }
+  }
+}, {rootMargin: "260px 0px"});
+
 for (const sample of SELECTED) {
   const article = document.createElement("article");
-  article.className = "selected-case";
-  article.innerHTML =
-    '<div class="selected-head"><div><div class="sample-no">sample ' + String(sample.index).padStart(2, "0") + ' · ' + sample.root + '</div>' +
-      '<h3>' + sample.title + '</h3></div></div>' +
-    '<div class="selected-body"><aside class="selected-reference"><img alt="Reference frame for ' + sample.title + '">' +
-      '<div><div class="label">reference frame · four conditions</div><p>Text baseline, then Blender Round 0, 1, and 2 conditioning with the same Stage-2 prompt.</p></div>' +
-    '</aside><div class="selected-grid"></div></div>';
-  article.querySelector("img").src = SELECTED_BASE + sample.source;
-  article.querySelector("img").addEventListener("error", event => { event.currentTarget.replaceWith(document.createTextNode("reference frame unavailable")); });
-  const grid = article.querySelector(".selected-grid");
-  const videos = [];
-  METHODS.forEach((method, index) => {
-    const pane = document.createElement("figure");
-    pane.className = "selected-method";
-    pane.dataset.r = String(index);
-    pane.innerHTML = '<div class="selected-method-head"><b>' + method.label + '</b><span>' + method.name + '</span></div>' +
-      '<div class="selected-frame"><video controls loop muted playsinline preload="metadata"></video></div>';
-    const frame = pane.querySelector(".selected-frame");
-    const video = pane.querySelector("video");
-    video.poster = SELECTED_BASE + sample.source;
-    video.src = mediaUrl(sample, method.file);
-    video.addEventListener("error", () => setPending(frame), {once:true});
-    videos.push(video);
-    grid.append(pane);
-  });
-  videos.forEach(video => {
-    video.addEventListener("play", () => videos.forEach(other => { if (other !== video) { other.currentTime = video.currentTime; other.muted = true; other.play().catch(() => {}); } }));
-    video.addEventListener("pause", () => videos.forEach(other => { if (other !== video) other.pause(); }));
-    video.addEventListener("seeking", () => videos.forEach(other => { if (other !== video) other.currentTime = video.currentTime; }));
-  });
+  article.className = "case";
+  article.innerHTML = SHELL;
+  const badge = article.querySelector(".badge");
+  badge.dataset.c = "mechanics";
+  badge.textContent = sample.root.toUpperCase();
+  article.querySelector("h3").textContent = sample.title;
+  article.querySelector("code").textContent = "sample " + String(sample.index).padStart(2, "0");
+  const vids = [...article.querySelectorAll("video")];
+  vids.forEach((video, i) => { video.dataset.u = mediaUrl(sample, ROUNDS[i].file); });
+  const cd = {vids, panes: [...article.querySelectorAll(".pane")], i: 0, timer: null};
+  article._cd = cd;
+  mark(cd, 0);
   cases.append(article);
+  io.observe(article);
 }
 
 
