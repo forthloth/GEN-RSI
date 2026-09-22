@@ -418,7 +418,7 @@ const io = new IntersectionObserver(es => {
   }
 }, {rootMargin: "260px 0px"});
 
-for (const sample of SELECTED) {
+for (const [order, sample] of SELECTED.entries()) {
   const article = document.createElement("article");
   article.className = "case";
   article.innerHTML = SHELL;
@@ -426,7 +426,7 @@ for (const sample of SELECTED) {
   badge.dataset.c = "mechanics";
   badge.textContent = sample.root.toUpperCase();
   article.querySelector("h3").textContent = sample.title;
-article.querySelector("code").textContent = "sample " + String(sample.index).padStart(2, "0");
+article.querySelector("code").textContent = "sample " + String(order + 1).padStart(2, "0");
   const defects = DEFECTS[sample.id] || ["Visual defect remains under review.", "The initial proxy still drifts.", "The refinement is not yet stable.", "The final motion is consistent."];
   article.querySelectorAll(".defect").forEach((el, i) => { el.textContent = defects[i]; });
   const vids = [...article.querySelectorAll("video")];
